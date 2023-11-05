@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner::before {
+    background-image: url(../../public/img/banner/bannermtk.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
