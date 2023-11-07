@@ -29,8 +29,8 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'guru'])->group(function () {
+// Route::middleware(['auth', 'guru'])->group(function () {
     Route::controller(GuruController::class)->group(function () {
         Route::get('/guru', 'index');
     });
-});
+// });
