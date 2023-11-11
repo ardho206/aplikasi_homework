@@ -29,7 +29,7 @@
     <h2 class="text-[#5E72E4] text-3xl font-bold mb-4 tracking-wider z-50">Log<span
             class="bg-[#5E72E4] text-white px-1">in</span>
     </h2>
-    <form action="{{ url('/login/auth') }}" method="post" class="w-[23rem] z-50">
+    <form action="{{ url('/login/auth') }}" method="post" class="w-full px-6 z-50">
         @csrf
         <div class="w-full">
             <label for="email-address-icon"
@@ -49,7 +49,7 @@
                     placeholder="name@example.com">
             </div>
             <label for="password-icon"
-                class="block mt-3 mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                class="block mt-5 md:mt-3 mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
             <div class="relative mb-5">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -76,19 +76,19 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#5E72E4] focus:border-[#5E72E4] block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
 
-            <h3 class="block mb-1 mt-3 text-sm font-medium text-gray-900 dark:text-white">Login sebagai :</h3>
+            <h3 class="block mb-2 md:mb-1 mt-3 text-sm font-medium text-gray-900 dark:text-white">Login sebagai :</h3>
 
             <div class="flex items-center mb-2">
                 <input id="guru" type="radio" name="role" value="guru"
-                    class="h-5 w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
-                <label for="guru" class="text-sm font-medium text-gray-900 ml-2 block">
+                    class="h-4 w-4 md:h-5 md:w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
+                <label for="guru" class="text-xs md:text-sm font-medium text-gray-900 ml-2 block">
                     Guru
                 </label>
             </div>
             <div class="flex items-center mb-2">
                 <input id="siswa" type="radio" name="role" value="siswa"
-                    class="h-5 w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
-                <label for="siswa" class="text-sm font-medium text-gray-900 ml-2 block">
+                    class="h-4 w-4 md:h-5 md:w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
+                <label for="siswa" class="text-xs md:text-sm font-medium text-gray-900 ml-2 block">
                     Siswa
                 </label>
             </div>
@@ -97,6 +97,6 @@
         <button type="submit"
             class="bg-gradient-to-br from-[#5E72E4] to-blue-400 text-white w-full py-2 mt-5 rounded-lg font-medium">Login</button>
     </form>
-    <p class="text-sm mt-2 tracking-wide">Belum memiliki akun? <a href="/register"
+    <p class="text-xs md:text-sm mt-2 tracking-wide">Belum memiliki akun? <a href="/register"
             class="text-[#5E72E4] font-semibold">Daftar</a></p>
 @endsection

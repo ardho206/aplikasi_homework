@@ -6,7 +6,7 @@
         </div>
         <div class="divider"></div>
         <div  :class="!sidebarOpen ? 'tooltip tooltip-right' : '' " :data-tip="!sidebarOpen ? 'Beranda' : '' ">
-            <a href="" class="flex bg-[#5E72E4] text-white text-lg font-semibold p-4 overflow-hidden rounded-lg relative">
+            <a href="{{ url('/guru') }}" class="relative flex {{ Request::is('guru') ? 'bg-[#5E72E4] text-white' : 'text-gray-600 bg-neutral-100 hover:bg-neutral-300 hover:text-gray-700' }} text-lg font-semibold p-4 overflow-hidden rounded-lg">
                 <svg class="w-6 h-6 absolute top-1/2 -translate-y-1/2 left-[11px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8v10a1 1 0 0 0 1 1h4v-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5h4a1 1 0 0 0 1-1V8M1 10l9-9 9 9"/>
                 </svg>
@@ -14,7 +14,7 @@
             </a>
         </div>
         <div  :class="!sidebarOpen ? 'tooltip tooltip-right' : '' " :data-tip="!sidebarOpen ? 'Tugas' : '' ">
-            <a href="" class="relative flex p-4 overflow-hidden text-lg font-semibold text-gray-600 rounded-lg bg-neutral-100 hover:bg-neutral-300 hover:text-gray-700">
+            <a href="{{ url('/tugas') }}" class="relative flex {{ Request::is('tugas*') ? 'bg-[#5E72E4] text-white' : 'text-gray-600 bg-neutral-100 hover:bg-neutral-300 hover:text-gray-700' }} text-lg font-semibold p-4 overflow-hidden rounded-lg">
                 <svg class="w-6 h-6 absolute top-1/2 -translate-y-1/2 left-[11px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                     <path d="M9 1.334C7.06.594 1.646-.84.293.653a1.158 1.158 0 0 0-.293.77v13.973c0 .193.046.383.134.55.088.167.214.306.366.403a.932.932 0 0 0 .5.147c.176 0 .348-.05.5-.147 1.059-.32 6.265.851 7.5 1.65V1.334ZM19.707.653C18.353-.84 12.94.593 11 1.333V18c1.234-.799 6.436-1.968 7.5-1.65a.931.931 0 0 0 .5.147.931.931 0 0 0 .5-.148c.152-.096.279-.235.366-.403.088-.167.134-.357.134-.55V1.423a1.158 1.158 0 0 0-.293-.77Z"/>
                 </svg>
@@ -22,7 +22,7 @@
             </a>
         </div>
         <div  :class="!sidebarOpen ? 'tooltip tooltip-right' : '' " :data-tip="!sidebarOpen ? 'Kelas' : '' ">
-            <a href="" class="relative flex p-4 overflow-hidden text-lg font-semibold text-gray-600 rounded-lg bg-neutral-100 hover:bg-neutral-300 hover:text-gray-700">
+            <a href="{{ url('/kelas') }}" class="relative flex {{ Request::is('kelas*') ? 'bg-[#5E72E4] text-white' : 'text-gray-600 bg-neutral-100 hover:bg-neutral-300 hover:text-gray-700' }} text-lg font-semibold p-4 overflow-hidden rounded-lg">
                 <svg class="w-6 h-6 absolute top-1/2 -translate-y-1/2 left-[11px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.333 6.764a3 3 0 1 1 3.141-5.023M2.5 16H1v-2a4 4 0 0 1 4-4m7.379-8.121a3 3 0 1 1 2.976 5M15 10a4 4 0 0 1 4 4v2h-1.761M13 7a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-4 6h2a4 4 0 0 1 4 4v2H5v-2a4 4 0 0 1 4-4Z"/>
                 </svg>

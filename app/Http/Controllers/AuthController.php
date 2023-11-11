@@ -12,14 +12,12 @@ class AuthController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:guru')->except('logout');
     }
 
     public function login()
     {
-        if(Auth::guard('guru')->check()) {
-            return redirect('/guru');
-        }
         return view('auth.login');
     }
 
@@ -39,7 +37,7 @@ class AuthController extends Controller
 
             $guruData = Guru::where('email', $request->email)->first();
 
-            if ($guruData && Auth::guard('guru')->attempt($credentials)) {
+            if ($guruData && auth('guru')->attempt($credentials)) {
 
                 $request->session()->regenerate();
 

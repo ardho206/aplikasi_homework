@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelas;
+use App\Models\Jurusan;
 use Illuminate\Http\Request;
 
 class KelasController extends Controller
@@ -10,9 +11,22 @@ class KelasController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(string $slug)
     {
-        return view('teachers.pages.kelas');
+        $jurusans = Jurusan::with('kelas')->where('slug', $slug)->get();
+
+        if ($jurusans->isEmpty()) {
+            abort(404); // atau redirect ke halaman 404 atau halaman lain sesuai kebutuhan Anda
+        }
+
+        $kelas = collect();
+        foreach ($jurusans as $jurusan) {
+            $kelas = $kelas->merge($jurusan->kelas);
+        }
+
+        $bannerJurusan = $jurusans->first()->banner;
+
+        return view('teachers.pages.kelas', compact('jurusans', 'kelas', 'bannerJurusan'));
     }
 
     /**

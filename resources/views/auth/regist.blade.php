@@ -4,11 +4,11 @@
     <h2 class="text-[#5E72E4] text-3xl font-bold mb-4 tracking-wider z-50">Sign<span
             class="bg-[#5E72E4] text-white px-1">up</span>
     </h2>
-    <form action="{{ url('/register/create') }}" method="post" class="w-[23rem] z-50">
+    <form action="{{ url('/register/create') }}" method="post" class="w-full px-6 z-50">
         @csrf
         <div class="w-full">
             <label for="name-icon" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-            <div class="relative mb-5">
+            <div class="relative mb-3 md:mb-5">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 14 18">
@@ -20,7 +20,7 @@
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#5E72E4] focus:border-[#5E72E4] block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
             <label for="username-icon" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-            <div class="relative mb-5">
+            <div class="relative mb-3 md:mb-5">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                         fill="none" viewBox="0 0 14 18">
@@ -33,7 +33,7 @@
             </div>
             <label for="email-address-icon"
                 class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-            <div class="relative mb-5">
+            <div class="relative mb-3 md:mb-5">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
@@ -48,7 +48,7 @@
             </div>
             <label for="password-icon"
                 class="block mt-3 mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-            <div class="relative mb-5">
+            <div class="relative mb-3 md:mb-5">
                 <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 20">
@@ -78,15 +78,15 @@
 
             <div class="flex items-center mb-2">
                 <input id="guru" type="radio" name="role" value="guru"
-                    class="h-5 w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
-                <label for="guru" class="block ml-2 text-sm font-medium text-gray-900">
+                    class="h-4 w-4 md:h-5 md:w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
+                <label for="guru" class="text-xs md:text-sm font-medium text-gray-900 ml-2 block">
                     Guru
                 </label>
             </div>
             <div class="flex items-center mb-2">
                 <input id="siswa" type="radio" name="role" value="siswa"
-                    class="h-5 w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
-                <label for="siswa" class="block ml-2 text-sm font-medium text-gray-900">
+                    class="h-4 w-4 md:h-5 md:w-5 border-gray-300 focus:ring-0 focus:bg-[#5E72E4] checked:bg-[#5E72E4] appearance-none cursor-pointer">
+                <label for="siswa" class="text-xs md:text-sm font-medium text-gray-900 ml-2 block">
                     Siswa
                 </label>
             </div>
@@ -95,6 +95,6 @@
         <button type="submit"
             class="bg-gradient-to-br from-[#5E72E4] to-blue-400 text-white w-full py-2 mt-5 rounded-lg font-medium">Signup</button>
     </form>
-    <p class="mt-2 text-sm tracking-wide">Sudah memiliki akun? <a href="/login"
+    <p class="mt-2 text-xs md:text-sm tracking-wide">Sudah memiliki akun? <a href="/login"
             class="text-[#5E72E4] font-semibold">Masuk</a></p>
 @endsection

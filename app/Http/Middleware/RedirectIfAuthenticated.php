@@ -25,6 +25,10 @@ class RedirectIfAuthenticated
             }
         }
 
+        if(Auth::guard('guru')->check()) {
+            return redirect(RouteServiceProvider::GURU);
+        }
+
         return $next($request);
     }
 }

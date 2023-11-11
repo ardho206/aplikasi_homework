@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\TugasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,12 +27,19 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login/auth', 'authenticate');
     Route::get('/register', 'regist');
     Route::post('/register/create', 'registration');
-})->middleware('guest');
+    Route::post('/logout', 'logout')->name('logout');
+});
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::middleware(['auth', 'guru'])->group(function () {
+Route::middleware(['auth:guru', 'guruMiddleware'])->group(function () {
     Route::controller(GuruController::class)->group(function () {
         Route::get('/guru', 'index');
+        Route::get('/api/jurusan', 'jurusanApi');
+    });
+    Route::controller(KelasController::class)->group(function () {
+        Route::get('/kelas/{slug}', 'index');
+    });
+    Route::controller(TugasController::class)->group(function () {
+        Route::get('/tugas','index');
     });
 });

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('role')->default('guru');
             $table->string('jenis_kelamin')->nullable();
             $table->unsignedBigInteger('jurusan_id')->nullable();
             $table->unsignedBigInteger('mapel_id')->nullable();

@@ -1,5 +1,5 @@
-<header class="antialiased w-full">
-    <nav class="bg-white border-gray-200 rounded-lg px-4 mx-4 my-4 py-2.5 lg:py-4 dark:bg-gray-800">
+<header class="antialiased w-full sticky top-4 z-50">
+    <nav class="bg-white border-gray-200 rounded-lg px-2 mx-4 my-4 py-2 lg:px-4 lg:py-4 dark:bg-gray-800">
         <div class="flex flex-wrap items-center justify-between">
             <div class="flex items-center justify-start">
                 <button @click="sidebarOpen = !sidebarOpen" class="hidden p-2 mr-3 text-gray-600 rounded cursor-pointer lg:inline hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700">
@@ -9,16 +9,7 @@
                             d="M1 1h14M1 6h14M1 11h7" />
                     </svg>
                 </button>
-                <button class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                    <svg class="w-[18px] h-[18px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                        fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M1 1h15M1 7h15M1 13h15" />
-                    </svg>
-                    <span class="sr-only">Toggle sidebar</span>
-                </button>
-                <label for="topbar-search" class="sr-only">Search</label>
-                <div class="relative mt-1 w-[240px] lg:w-96">
+                <div class="relative w-[13.3rem] lg:w-96">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <svg class="w-4 h-4 text-gray-500 lg:w-5 lg:h-5 dark:text-gray-400" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -28,11 +19,11 @@
                     </div>
                     <input type="search" x-model="search" id="topbar-search"
                         @input="updateURL()"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm lg:text-md rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-9 lg:pl-10 p-2.5 lg:p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm lg:text-md rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-9 lg:pl-10 p-2.5 lg:p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                         placeholder="Search">
                 </div>
             </div>
-            <div class="flex items-center lg:order-2">
+            <div class="flex items-center justify-end lg:order-2 gap-2">
                 <button type="button" data-dropdown-toggle="add-class" class="hidden p-2 text-gray-500 rounded-lg lg:block hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-700 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600">
                     <span class="sr-only">Add Class</span>
                     <svg class="hidden lg:block lg:w-6 lg:h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
@@ -208,8 +199,8 @@
                     </a>
                 </div>
                 <button type="button"
-                    class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                    id="dropdownSkiddingButton" data-dropdown-toggle="dropdownSkidding" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="120" data-dropdown-placement="left">
+                    class="flex lg:mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+                    id="dropdownSkiddingButton" data-dropdown-toggle="dropdownSkidding" data-dropdown-offset-distance="-50" data-dropdown-offset-skidding="110" data-dropdown-placement="left">
                     <span class="sr-only">Open user menu</span>
                     <img class="w-8 rounded-full h-9 lg:w-10 lg:h-11"
                         src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo">
