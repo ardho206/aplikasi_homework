@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
+    public function kelasApi()
+    {
+        $kelas = Kelas::all();
+
+        return response()->json($kelas);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -16,17 +23,19 @@ class KelasController extends Controller
         $jurusans = Jurusan::with('kelas')->where('slug', $slug)->get();
 
         if ($jurusans->isEmpty()) {
-            abort(404); // atau redirect ke halaman 404 atau halaman lain sesuai kebutuhan Anda
+            abort(404);
         }
 
-        $kelas = collect();
+        $kelasMessages = [];
         foreach ($jurusans as $jurusan) {
-            $kelas = $kelas->merge($jurusan->kelas);
+            foreach ($jurusan->kelas as $kelas) {
+                $kelasMessages[] = $kelas->kelas . ' ' . $jurusan->jurusan;
+            }
         }
 
         $bannerJurusan = $jurusans->first()->banner;
 
-        return view('teachers.pages.kelas', compact('jurusans', 'kelas', 'bannerJurusan'));
+        return view('teachers.pages.kelas', compact('kelasMessages', 'bannerJurusan'));
     }
 
     /**

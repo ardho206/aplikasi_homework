@@ -15,12 +15,12 @@
     <title>Homework</title>
 </head>
 
-<body class="font-poppins max-w-full h-screen overflow-x-hidden">
+<body x-data="getCombinedData()" x-init="init" class="font-poppins max-w-full h-screen overflow-x-hidden bg-gray-100 before:fixed before:left-0 before:top-0 before:bg-[#5E72E4] before:h-80 before:md:h-[25rem] before:w-full">
 
-    <div x-data="{ sidebarOpen: true }" class="before:fixed before:left-0 before:top-0 before:-z-50 before:bg-[#5E72E4] before:h-80 before:md:h-[25rem] before:w-full relative flex">
+    <div x-data="{ sidebarOpen: true }" class="relative flex">
         <x-sidebar-guru />
 
-        <div x-data="getJurusans()" class="flex-1">
+        <div class="flex-1">
             <x-navbar-guru />
 
             <main class="antialiased">

@@ -38,6 +38,7 @@ Route::middleware(['auth:guru', 'guruMiddleware'])->group(function () {
     });
     Route::controller(KelasController::class)->group(function () {
         Route::get('/kelas/{slug}', 'index');
+        Route::get('/api/kelas', 'kelasApi');
     });
     Route::controller(TugasController::class)->group(function () {
         Route::get('/tugas','index');

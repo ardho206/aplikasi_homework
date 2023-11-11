@@ -1,3 +1,16 @@
+function getCombinedData() {
+    const jurusans = getJurusans();
+    const kelas = getKelas();
+
+    return {
+        jurusans,
+        kelas,
+        init() {
+            this.kelas.init();
+        }
+    };
+}
+
 function getJurusans() {
     return {
         search: '',
@@ -7,10 +20,12 @@ function getJurusans() {
                 return this.allData;
             }
             return this.allData.filter((jurusan) => {
-                return (jurusan.jurusan + jurusan.kepanjangan)
-                    .replace(/ /g, '')
-                    .toLowerCase()
-                    .includes(this.search.replace(/ /g, '').toLowerCase());
+                return (
+                    (jurusan.jurusan + jurusan.kepanjangan)
+                        .replace(/ /g, '')
+                        .toLowerCase()
+                        .includes(this.search.replace(/ /g, '').toLowerCase())
+                );
             });
         },
         updateURL() {
@@ -19,7 +34,41 @@ function getJurusans() {
             } else {
                 history.pushState(null, '', `?search=${this.search}`);
             }
-        }
+        },
+    };
+}
+
+function getKelas() {
+    return {
+        selectedKelas: '',
+        allData: [],
+        async init() {
+            // Fetch kelas data from the Laravel API endpoint
+            const response = await fetch('/api/kelas');
+            this.allData = await response.json();
+
+            // Check if there is a selected kelas in the URL and set it
+            const urlParams = new URLSearchParams(window.location.search);
+            const kelasParam = urlParams.get('kelas');
+            if (kelasParam) {
+                this.selectedKelas = kelasParam;
+            }
+        },
+        get filteredKelas() {
+            if (this.selectedKelas === '') {
+                return this.allData;
+            }
+            return this.allData.filter((kelas) => {
+                return kelas.kelas == this.selectedKelas;
+            });
+        },
+        updateURL() {
+            if (this.selectedKelas === '') {
+                history.pushState(null, '', window.location.pathname);
+            } else {
+                history.pushState(null, '', `?kelas=${this.selectedKelas}`);
+            }
+        },
     };
 }
 
@@ -61,3 +110,7 @@ const jurusanData = [
         banner: 'banner_tp.png'
     }
 ];
+
+document.addEventListener('DOMContentLoaded', function () {
+    getCombinedData().init();
+});
