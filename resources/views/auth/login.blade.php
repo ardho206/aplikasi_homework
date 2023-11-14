@@ -29,7 +29,7 @@
     <h2 class="text-[#5E72E4] text-3xl font-bold mb-4 tracking-wider z-50">Log<span
             class="bg-[#5E72E4] text-white px-1">in</span>
     </h2>
-    <form action="{{ url('/login/auth') }}" method="post" class="w-full px-6 z-50">
+    <form action="{{ url('/login/auth') }}" method="post" class="w-full md:w-96 px-6 z-50">
         @csrf
         <div class="w-full">
             <label for="email-address-icon"

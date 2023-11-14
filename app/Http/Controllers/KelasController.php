@@ -8,13 +8,6 @@ use Illuminate\Http\Request;
 
 class KelasController extends Controller
 {
-    public function kelasApi()
-    {
-        $kelas = Kelas::all();
-
-        return response()->json($kelas);
-    }
-
     /**
      * Display a listing of the resource.
      */

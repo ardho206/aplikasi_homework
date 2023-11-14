@@ -1,14 +1,18 @@
-function getCombinedData() {
+function mergeData() {
     const jurusans = getJurusans();
     const kelas = getKelas();
 
-    return {
-        jurusans,
-        kelas,
-        init() {
-            this.kelas.init();
+    // Merge the data objects
+    const mergedData = {
+        ...jurusans,
+        ...kelas,
+        updateURL: function() {
+            jurusans.updateURL.call(this);
+            kelas.updateURL.call(this);
         }
     };
+
+    return mergedData;
 }
 
 function getJurusans() {
@@ -42,18 +46,18 @@ function getKelas() {
     return {
         selectedKelas: '',
         allData: [],
-        async init() {
-            // Fetch kelas data from the Laravel API endpoint
-            const response = await fetch('/api/kelas');
-            this.allData = await response.json();
+        // async init() {
+        //     // Fetch kelas data from the Laravel API endpoint
+        //     const response = await fetch('/api/kelas');
+        //     this.allData = await response.json();
 
-            // Check if there is a selected kelas in the URL and set it
-            const urlParams = new URLSearchParams(window.location.search);
-            const kelasParam = urlParams.get('kelas');
-            if (kelasParam) {
-                this.selectedKelas = kelasParam;
-            }
-        },
+        //     // Check if there is a selected kelas in the URL and set it
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const kelasParam = urlParams.get('kelas');
+        //     if (kelasParam) {
+        //         this.selectedKelas = kelasParam;
+        //     }
+        // },
         get filteredKelas() {
             if (this.selectedKelas === '') {
                 return this.allData;
@@ -110,7 +114,3 @@ const jurusanData = [
         banner: 'banner_tp.png'
     }
 ];
-
-document.addEventListener('DOMContentLoaded', function () {
-    getCombinedData().init();
-});
