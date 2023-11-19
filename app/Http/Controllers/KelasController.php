@@ -28,7 +28,7 @@ class KelasController extends Controller
 
         $bannerJurusan = $jurusans->first()->banner;
 
-        return view('teachers.pages.kelas', compact('kelasMessages', 'bannerJurusan'));
+        return view('teachers.pages.kelas', compact('kelasMessages', 'bannerJurusan', 'jurusans'));
     }
 
     /**

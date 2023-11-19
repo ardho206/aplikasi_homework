@@ -1,10 +1,7 @@
 import "./bootstrap";
 import "flowbite";
-import Alpine from 'alpinejs';
-import collapse from '@alpinejs/collapse';
+import Alpine from "alpinejs";
+import Clipboard from "@ryangjchandler/alpine-clipboard";
 
-Alpine.plugin(collapse);
-
-window.Alpine = Alpine;
-
+Alpine.plugin(Clipboard);
 Alpine.start();

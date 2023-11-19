@@ -13,6 +13,9 @@ export default {
                 poppins: ['"Poppins"', "sans-serif"],
                 montserrat: ['"Montserrat"', "sans-serif"],
             },
+            backgroundColor: {
+                primary: ["#5E72E4"],
+            },
         },
     },
     plugins: [require("daisyui"), require("flowbite/plugin")],

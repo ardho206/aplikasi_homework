@@ -6,6 +6,7 @@ namespace Database\Seeders;
 
 use App\Models\Guru;
 use Illuminate\Database\Seeder;
+use Database\Seeders\KelasSeeder;
 use Database\Seeders\JurusanSeeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -31,5 +32,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(JurusanSeeder::class);
+
+        $this->call(KelasSeeder::class);
     }
 }

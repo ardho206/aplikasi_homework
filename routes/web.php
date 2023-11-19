@@ -1,6 +1,9 @@
 <?php
 
+use App\Livewire\Auth\Login;
 use Illuminate\Support\Facades\Auth;
+use App\Livewire\Layouts\LandingPage;
+use App\Livewire\Teachers\Pages\Home;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuruController;
@@ -19,16 +22,18 @@ use App\Http\Controllers\TugasController;
 */
 
 Route::get('/', function () {
-    return view('landing-page');
+    return view('layouts.landing-page');
 });
 
-Route::controller(AuthController::class)->group(function () {
-    Route::get('/login', 'login')->name('login');
-    Route::post('/login/auth', 'authenticate');
-    Route::get('/register', 'regist');
-    Route::post('/register/create', 'registration');
-    Route::post('/logout', 'logout')->name('logout');
-});
+Route::get('/login', Login::class)->name('login');
+
+// Route::controller(AuthController::class)->group(function () {
+//     Route::get('/login', 'login')->name('login');
+//     Route::post('/login/auth', 'authenticate');
+//     Route::get('/register', 'regist');
+//     Route::post('/register/create', 'registration');
+//     Route::post('/logout', 'logout')->name('logout');
+// });
 
 
 Route::middleware(['auth:guru', 'guruMiddleware'])->group(function () {
